@@ -16,15 +16,22 @@ def shortet_paths(adj, cost, s, distance, reachable, shortest):
         for u in range(len(adj)):
             for vind in range(len(adj[u])):
                 v = adj[u][vind]
-                if distance[u] != inf and distance[v] > distance[u] + cost[u][vind]:
+                if distance[v] > distance[u] + cost[u][vind]:
                     distance[v] = distance[u] + cost[u][vind]
                     reachable[v] = 1
                     if count == len(adj) - 1:
                         q.put(v)
+                        shortest[v] = 0
 
     visited = [0 for i in range(len(adj))]
-
-    # return reachable, shortest, distance
+    while not q.empty():
+        u = q.get()
+        visited[u] = 1
+        for v in adj[u]:
+            if visited[v] == 0:
+                q.put(v)
+                shortest[v] = 0
+                visited[v] = 1
 
 
 if __name__ == '__main__':
@@ -45,10 +52,10 @@ if __name__ == '__main__':
     # print('adj ', adj)
     # print('cost', cost)
     # print('n', n, 's ', s)
-    # n = 5
+    # n = 6
     # adj = [[1, 2], [2], [4], [2], [3], [0]]
     # cost = [[10, 100], [5], [7], [-18], [10], [-1]]
-    # s = 3
+    # s = 0
     # adj = [[1], [2], [0], [0], []]
     # cost = [[1], [2], [-5], [2], []]
 

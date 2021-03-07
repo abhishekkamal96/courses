@@ -89,14 +89,16 @@ def distance(adj, cost, s, t):
     visited = {}
 
     # while len(visited)<len(adj):
-        # H, min_, size = extract_min(H, size)
-        # if min_:
-        #     u = min_.get("n")
-        #     for ind in range(len(adj[u])):
-        #         v = adj[u][ind]
-        #         if dist[v] > dist[u] + cost[u][ind]:
-        #             dist[v] = dist[u] + cost[u][ind]
-        #             prev[v] = u
+    #     H, min_, size = extract_min(H, size)
+    #     if min_:
+    #         u = min_.get("n")
+    #         visited[u] = min_
+    #         for ind in range(len(adj[u])):
+    #             v = adj[u][ind]
+    #             if dist[v] > dist[u] + cost[u][ind]:
+    #                 dist[v] = dist[u] + cost[u][ind]
+    #                 prev[v] = u
+    #                 H = change_priority(H,v, dist[v], size)
     while len(visited) < len(adj):
         # print('visited ', visited)
         # print('dist ', dist)
