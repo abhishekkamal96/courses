@@ -24,6 +24,7 @@ def get_inorder(tree):
             break
     return ino
 
+
 def IsBinarySearchTree(tree):
   # Implement correct algorithm here
   ino = get_inorder(tree)
